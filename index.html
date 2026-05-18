@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon Memory Match</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
+</head>
+
+<body>
+  <main class="app-shell">
+    <header class="top-panel">
+      <div class="brand-block">
+        <p class="course-label">COMP 2537 Assignment 3</p>
+        <h1>Pokemon Memory Match</h1>
+      </div>
+
+      <div class="controls" aria-label="Game controls">
+        <label class="field-control" for="difficulty-select">
+          <span>Difficulty</span>
+          <select id="difficulty-select">
+            <option value="easy">Easy - 8 cards / 30s</option>
+            <option value="medium">Medium - 12 cards / 45s</option>
+            <option value="hard">Hard - 16 cards / 60s</option>
+          </select>
+        </label>
+
+        <label class="field-control" for="theme-select">
+          <span>Theme</span>
+          <select id="theme-select">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="electric">Electric</option>
+          </select>
+        </label>
+
+        <button id="start-button" class="primary-action" type="button">Start</button>
+        <button id="reset-button" type="button">Reset</button>
+        <button id="power-button" type="button" disabled>Reveal</button>
+      </div>
+    </header>
+
+    <section class="status-panel" aria-label="Game status">
+      <div class="status-card">
+        <span class="status-label">Clock</span>
+        <strong id="clock-display">--:--:--</strong>
+      </div>
+      <div class="status-card">
+        <span class="status-label">Time Left</span>
+        <strong id="time-display">00:30</strong>
+      </div>
+      <div class="status-card">
+        <span class="status-label">Clicks</span>
+        <strong id="clicks-display">0</strong>
+      </div>
+      <div class="status-card">
+        <span class="status-label">Pairs Left</span>
+        <strong id="pairs-left-display">4</strong>
+      </div>
+      <div class="status-card">
+        <span class="status-label">Matched</span>
+        <strong id="matched-display">0</strong>
+      </div>
+      <div class="status-card">
+        <span class="status-label">Total Pairs</span>
+        <strong id="total-display">4</strong>
+      </div>
+    </section>
+
+    <p id="message-display" class="message-display" role="status" aria-live="polite">
+      Choose a difficulty and press Start.
+    </p>
+
+    <section id="game-grid" class="game-grid" data-difficulty="easy" aria-label="Pokemon cards"></section>
+  </main>
+
+  <template id="card-template">
+    <button class="card" type="button">
+      <span class="card-inner">
+        <span class="card-face card-front">
+          <img class="pokemon-image" src="" alt="">
+          <span class="pokemon-name"></span>
+        </span>
+        <span class="card-face card-back">
+          <img src="assets/back.webp" alt="">
+        </span>
+      </span>
+    </button>
+  </template>
+</body>
+
+</html>
